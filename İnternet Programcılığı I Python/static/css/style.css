@@ -1,0 +1,53 @@
+p{
+    color: rgb(255, 255, 255);
+    background-color: orangered;
+    height: 20px;
+}
+
+a{
+    background-color: orange;
+    border: 2px solid purple;
+    border-radius: 12px;
+    text-decoration: none;
+    height: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+body{
+    background: linear-gradient(rgb(2, 68, 5), rgb(22, 250, 26));
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.main{
+    margin-top: 100px;
+    width: 200px;
+    height: 300px;
+    box-shadow: 5px 10px 130px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+input{
+    width: 150px;
+    height: 20px;
+    padding: 10px;
+    margin: 5px;
+    margin-left: 12px;
+}
+
+button{
+    width: 100px;
+    height: 30px;
+    background-color: chartreuse;
+    margin: 50px;
+}
+
+label{
+    color: rgb(118, 48, 16);
+    font-weight: bold;
+    margin-left: 10px;
+}

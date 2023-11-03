@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Giriş Sayfası</title>
+</head>
+<body>
+    <div class="main">
+        <form action="{{ url_for('giris_kontrol') }}" method="post">  <!--url_for: url oluşturma metodu-->
+            <input type="text" name="isim" placeholder="Kullanıcı adınızı girin..." required><br>
+            <input type="password" name="sifre" placeholder="Şifrenizi girin..." required><br>
+            <button> Giriş Yap </button>   
+            <a href="/kayit"> Hesap Oluştur </a>
+            {% if hata %}
+                <label> {{ hata }} </label>
+            {% endif %}
+        </form>    
+    </div>
+</body>
+</html>
