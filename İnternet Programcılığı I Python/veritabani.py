@@ -12,6 +12,6 @@ imlec.execute(sorgu)
 baglanti.commit() # yapılan tüm işlemleri kaydet
 
 # tabloya veri kaydet
-sorgu = "INSERT INTO kullanicilar VALUES('Selim', 'mangaselim004@outlook.com', 'hardiez94')"
+sorgu = "INSERT INTO kullanicilar VALUES('Selim', 'ornek@hotmail.com', '1234')"
 imlec.execute(sorgu)
 baglanti.commit()
