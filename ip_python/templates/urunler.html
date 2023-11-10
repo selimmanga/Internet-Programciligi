@@ -1,0 +1,32 @@
+{% extends "taslak.html" %} <!--Oluşturduğumuz taslağı dahil ettik-->
+{% block baslik %} Ürünler 
+
+{% block icerik %} 
+   <table class="urunler">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün Kodu</th>
+            <th>Adı</th>
+            <th>Fiyat</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr><td colspan="5"><a class="ekle" href="/urunler/ekle/">Ekle</a></td></tr>
+        {% for urun in urunler %} 
+        <tr>
+            <td> {{ urun[0] }} </td>
+            <td> {{ urun[1] }} </td>
+            <td> {{ urun[2] }} </td>
+            <td> {{ urun[3] }} </td>
+            <td>
+            <a class="guncelle" href="/urunler/guncelle/{{ urun[0] }}">Güncelle</a>
+            <a class="sil" href="/urunler/sil/{{ urun[0] }}">Sil</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody> 
+   </table>
+{% endblock %} {% endblock %}

@@ -1,0 +1,16 @@
+{% extends "taslak.html" %} <!--Oluşturduğumuz taslağı dahil ettik-->
+{% block baslik %} Giriş Sayfası {% endblock %}
+
+{% block icerik %} 
+    <div class="main">
+        <form action="{{ url_for('giris_kontrol') }}" method="post">  <!--url_for: url oluşturma metodu-->
+            <input type="text" name="isim" placeholder="Kullanıcı adınızı girin..." required><br>
+            <input type="password" name="sifre" placeholder="Şifrenizi girin..." required><br>
+            <button> Giriş Yap </button>   
+            <a href="/kayit"> Hesap Oluştur </a>
+            {% if hata %}
+                <label> {{ hata }} </label>
+            {% endif %}
+        </form>    
+    </div>
+{% endblock %} 
