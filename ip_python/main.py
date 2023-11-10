@@ -120,22 +120,25 @@ def urun_kaydet():
     baglanti.close()
     return redirect("/urunler")
 
-@app.route("/urunler/urun_ekle", methods=["POST"])
+@app.route("/urunler/urun_ekle", methods=['GET', 'POST'])
 def urun_ekle():
     
-    ad = request.form["ad"]
-    fiyat = request.form["fiyat"]
+    if request.method == "POST":
+        ad = request.form["ad"]
+        fiyat = request.form["fiyat"]
 
-    baglanti = sqlite3.connect("veriler.db")
-    imlec = baglanti.cursor()
+        baglanti = sqlite3.connect("veriler.db")
+        imlec = baglanti.cursor()
 
-    semboller = "0123456789abcdefghijklmnoprstABCDEFGHIJKLMNOPRST"
-    urunkodu = "".join(random.choices(semboller, k=5))
+        semboller = "0123456789abcdefghijklmnoprstABCDEFGHIJKLMNOPRST"
+        urunkodu = "".join(random.choices(semboller, k=5))
 
-    sorgu = f"INSERT INTO urunler (kod, ad, fiyat) VALUES ('{urunkodu}', '{ad}', {float(fiyat)})"
-    imlec.execute(sorgu)
-    baglanti.commit()
-    baglanti.close()
-    return redirect("/urunler")
+        sorgu = f"INSERT INTO urunler (kod, ad, fiyat) VALUES ('{urunkodu}', '{ad}', {float(fiyat)})"
+        imlec.execute(sorgu)
+        baglanti.commit()
+        baglanti.close()
+        return redirect("/urunler")
+    else:
+        return render_template("urun_ekle.html")
 
 app.run(debug=True)
